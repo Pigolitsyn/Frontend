@@ -1,0 +1,40 @@
+<div class="container mt-5">
+    <div class="d-flex flex-row-reverse bd-highlight">
+      <button class="btn btn-primary">Добавить сотрудника</button>
+    </div>
+    <h2 class="mb-3 text-center">Сотрудники</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Отдел</th>
+          <th scope="col">ФИО</th>
+          <th scope="col">Дата рождения</th>
+          <th scope="col">Дата найма</th>
+          <th scope="col">З/П (рублей в месяц)</th>
+          <th scope="col">Действие</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of Users">
+          <td>{{ user.department }}</td>
+          <td>{{ user.fullName }} </td>
+          <td>{{ user.birthDate }}</td>
+          <td>{{ user.hireTime }}</td>
+          <td>{{ user.salary }}</td>
+          <td>
+
+            <button class="edit btn-danger btn-sm btn" [value]="user.id" (click)="deleteUser($event)"
+              >Удалить</button
+            >
+            <div #modal></div> 
+            &nbsp;
+
+            <button
+              class="edit btn-success btn-sm btn"
+              >Поменять</button
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
