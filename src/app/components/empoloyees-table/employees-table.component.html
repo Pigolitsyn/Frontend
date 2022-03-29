@@ -1,0 +1,53 @@
+<div class="container mt-5">
+    <div class="d-flex flex-row-reverse bd-highlight">
+
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Добавить сотрудника
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <app-employee-create-form></app-employee-create-form>
+        </div>
+      </div>
+
+
+    </div>
+    <h2 class="mb-3 text-center">Сотрудники</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Отдел</th>
+          <th scope="col">ФИО</th>
+          <th scope="col">Дата рождения</th>
+          <th scope="col">Дата найма</th>
+          <th scope="col">З/П (рублей в месяц)</th>
+          <th scope="col">Действие</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of Employees">
+          <td>{{ user.department }}</td>
+          <td>{{ user.fullName }} </td>
+          <td>{{ user.birthDate | date }}</td>
+          <td>{{ user.hireTime | date }}</td>
+          <td>{{ user.salary | number }}</td>
+          <td>
+
+            <button class="edit btn-danger btn-sm btn" type="button" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal" [value]="user.id" (click)="deleteEmployee($event)">
+              Удалить
+            </button>
+            <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmModal" aria-hidden="true">
+              <div class="modal-dialog">
+                  <app-employee-delete-confirm-form></app-employee-delete-confirm-form>
+              </div>
+            </div>
+            &nbsp;
+            <button type="button" class="edit btn-success btn-sm btn" data-toggle="modal" data-target=".bd-example-modal-lg">Поменять</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

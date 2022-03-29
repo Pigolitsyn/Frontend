@@ -1,43 +1,47 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 
 import { HeaderComponent } from './components/header/header.component';
 import { AppComponent } from './app.component';
-import { EmpoloyeesTableComponent } from './components/empoloyees-table/empoloyees-table.component';
+import { EmployeesTableComponent, NgbdSortableHeader } from './components/empoloyees-table/employees-table.component';
 import { HomeComponent } from './components/home/home.component';
 import { RouterModule, Routes } from '@angular/router';
+import { EmployeeCreateFormComponent } from './components/employee-create-form/employee-create-form.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { ModalComponent } from './components/modal/modal.component';
-import { AComponent } from './components/a/a.component';
+
 
 const routes: Routes = [
-  { path: "employees", component: EmpoloyeesTableComponent },
+  { path: "employees", component: EmployeesTableComponent },
   { path: "home", component: HomeComponent }
 ];
+import { EmployeeDeleteConfirmFormComponent } from './components/employee-delete-confirm-form/employee-delete-confirm-form.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    EmpoloyeesTableComponent,
+    EmployeesTableComponent,
     HomeComponent,
-    ModalComponent,
-    AComponent
+    NgbdSortableHeader,
+    EmployeeCreateFormComponent,
+    EmployeeDeleteConfirmFormComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot(routes),
+    ReactiveFormsModule,
+    NgbModule,
   ],
   exports: [RouterModule],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [AComponent]
 })
 
 export class AppModule { }
