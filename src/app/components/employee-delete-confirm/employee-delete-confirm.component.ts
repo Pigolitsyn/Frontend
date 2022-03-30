@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, TemplateRef } from '@angular/core';
+import { Component, Input, Output, TemplateRef } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Employee } from 'src/app/interfaces/Employee';
 import { CrudService } from 'src/app/services/employees/crud.service';
