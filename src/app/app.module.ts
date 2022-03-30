@@ -11,7 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { EmployeeCreateFormComponent } from './components/employee-create-form/employee-create-form.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { SortableDirective } from './components/empoloyees-table/sortable.directive';
 
 
 const routes: Routes = [
@@ -31,6 +31,7 @@ import { EmployeeUpdateFormComponent } from './components/employee-update-form/e
     EmployeeCreateFormComponent,
     EmployeeDeleteConfirmComponent,
     EmployeeUpdateFormComponent,
+    SortableDirective,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
