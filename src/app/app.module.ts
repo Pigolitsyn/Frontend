@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { HeaderComponent } from './components/header/header.component';
 import { AppComponent } from './app.component';
-import { EmployeesTableComponent, NgbdSortableHeader } from './components/empoloyees-table/employees-table.component';
+import { EmployeesTableComponent } from './components/empoloyees-table/employees-table.component';
 import { HomeComponent } from './components/home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { EmployeeCreateFormComponent } from './components/employee-create-form/employee-create-form.component';
@@ -18,7 +18,8 @@ const routes: Routes = [
   { path: "employees", component: EmployeesTableComponent },
   { path: "home", component: HomeComponent }
 ];
-import { EmployeeDeleteConfirmFormComponent } from './components/employee-delete-confirm-form/employee-delete-confirm-form.component';
+import { EmployeeDeleteConfirmComponent } from './components/employee-delete-confirm/employee-delete-confirm.component';
+import { EmployeeUpdateFormComponent } from './components/employee-update-form/employee-update-form.component';
 
 
 @NgModule({
@@ -27,9 +28,9 @@ import { EmployeeDeleteConfirmFormComponent } from './components/employee-delete
     HeaderComponent,
     EmployeesTableComponent,
     HomeComponent,
-    NgbdSortableHeader,
     EmployeeCreateFormComponent,
-    EmployeeDeleteConfirmFormComponent
+    EmployeeDeleteConfirmComponent,
+    EmployeeUpdateFormComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

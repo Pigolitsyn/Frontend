@@ -6,10 +6,10 @@ import {CrudService} from '../../services/employees/crud.service';
 import {EmployeeDto} from "../../interfaces/Employee";
 
 @Component({
-  selector: 'app-employee-create-form',
-  templateUrl: './employee-create-form.component.html',
+  selector: 'app-employee-update-form',
+  templateUrl: './employee-update-form.component.html',
 })
-export class EmployeeCreateFormComponent {
+export class EmployeeUpdateFormComponent {
   @Output() userCreated: EventEmitter<void> = new EventEmitter;
 
   employeeForm = this.formBuilder.group({

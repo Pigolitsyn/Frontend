@@ -1,19 +1,6 @@
 <div class="container mt-5">
     <div class="d-flex flex-row-reverse bd-highlight">
-
-      <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Добавить сотрудника
-      </button>
-
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <app-employee-create-form></app-employee-create-form>
-        </div>
-      </div>
-
-
+      <app-employee-create-form (userCreated)="updateEmpolyees()"></app-employee-create-form>
     </div>
     <h2 class="mb-3 text-center">Сотрудники</h2>
     <table class="table">
@@ -28,24 +15,18 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let user of Employees">
-          <td>{{ user.department }}</td>
-          <td>{{ user.fullName }} </td>
-          <td>{{ user.birthDate | date }}</td>
-          <td>{{ user.hireTime | date }}</td>
-          <td>{{ user.salary | number }}</td>
+        <tr *ngFor="let employee of Employees">
+          <td>{{ employee.department }}</td>
+          <td>{{ employee.fullName }} </td>
+          <td>{{ employee.birthDate | date }}</td>
+          <td>{{ employee.hireTime | date }}</td>
+          <td>{{ employee.salary | number }}</td>
           <td>
-
-            <button class="edit btn-danger btn-sm btn" type="button" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal" [value]="user.id" (click)="deleteEmployee($event)">
-              Удалить
-            </button>
-            <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmModal" aria-hidden="true">
-              <div class="modal-dialog">
-                  <app-employee-delete-confirm-form></app-employee-delete-confirm-form>
-              </div>
-            </div>
+            <app-employee-delete-confirm [employee]="employee" (employeeDelete)="updateEmpolyees()"></app-employee-delete-confirm>
             &nbsp;
+            <app-employee-update-form [employee]="employee"></app-employee-update-form>
             <button type="button" class="edit btn-success btn-sm btn" data-toggle="modal" data-target=".bd-example-modal-lg">Поменять</button>
+            
           </td>
         </tr>
       </tbody>
